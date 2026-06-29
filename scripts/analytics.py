@@ -33,7 +33,7 @@ def benchmark_spark():
     return end_time - start_time
 
 def benchmark_clickhouse():
-    client = clickhouse_connect.get_client(host='localhost', port=8123)
+    client = clickhouse_connect.get_client(host='localhost', port=8123, username='default', password='password')
     
     start_time = time.time()
     client.query(QUERY_CH)
