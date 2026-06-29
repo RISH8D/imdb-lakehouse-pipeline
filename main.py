@@ -1,7 +1,15 @@
+import os
 import subprocess
 import sys
 import time
 import logging
+
+# Dynamically set JAVA_HOME for PySpark using Mac Homebrew's OpenJDK 17
+try:
+    java_home_path = subprocess.check_output(['brew', '--prefix', 'openjdk@17'], text=True).strip()
+    os.environ["JAVA_HOME"] = f"{java_home_path}/libexec/openjdk.jdk/Contents/Home"
+except Exception:
+    pass # Let Spark fallback to default if brew is not available
 
 logging.basicConfig(
     level=logging.INFO,
