@@ -1,0 +1,15 @@
+# Data and Parquet files (We don't want to upload 2GB of data to GitHub)
+data/raw/*
+data/lake/*
+
+# Keep the folder structure intact even if folders are empty
+!data/raw/.gitkeep
+!data/lake/.gitkeep
+
+# NEVER UPLOAD API KEYS
+kaggle.json
+
+# Python environment and cache
+venv/
+__pycache__/
+.DS_Store
