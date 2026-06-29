@@ -3,6 +3,9 @@ import clickhouse_connect
 def load_data():
     client = clickhouse_connect.get_client(host='localhost', port=8123, username='default', password='password')
 
+    # Ensure idempotency by dropping the table if it already exists
+    client.command("DROP TABLE IF EXISTS imdb_analytics")
+
     # DDL with MergeTree. ORDER BY optimizes for categorical filtering and sorting.
     ddl = """
     CREATE TABLE IF NOT EXISTS imdb_analytics (
