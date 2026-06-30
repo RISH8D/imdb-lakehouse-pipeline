@@ -22,7 +22,7 @@ QUERY_CH = """
 """
 
 def benchmark_spark():
-    spark = SparkSession.builder.master("local[*]").appName("Benchmark").getOrCreate()
+    spark = SparkSession.builder.master("spark://spark-master:7077").appName("Benchmark").getOrCreate()
     df = spark.read.parquet("./data/lake/imdb_enriched.parquet")
     df.createOrReplaceTempView("imdb")
     
