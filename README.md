@@ -28,3 +28,4 @@ I used ChatGPT to generate the boilerplate PySpark syntax and the Docker Compose
    ```bash
    docker compose up --build
    ```
+   *(Note: If you are on an older version of Docker Desktop, you may need to use the hyphenated syntax: `docker-compose up --build`)*
