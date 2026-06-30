@@ -14,7 +14,7 @@ def main():
         .master("local[*]") \
         .getOrCreate()
     
-    # 1. Extract (Assuming TSV files are in ./data/raw/)
+    # 1. Extract
     titles_df = spark.read.option("header", "true").option("sep", "\t").csv("./data/raw/title.basics.tsv")
     ratings_df = spark.read.option("header", "true").option("sep", "\t").csv("./data/raw/title.ratings.tsv")
     

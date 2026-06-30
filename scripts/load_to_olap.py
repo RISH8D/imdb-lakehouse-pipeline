@@ -1,7 +1,9 @@
+import os
 import clickhouse_connect
 
 def load_data():
-    client = clickhouse_connect.get_client(host='localhost', port=8123, username='default', password='password')
+    host = os.getenv('CLICKHOUSE_HOST', 'localhost')
+    client = clickhouse_connect.get_client(host=host, port=8123, username='default', password='password')
 
     # DDL with MergeTree. ORDER BY optimizes for categorical filtering and sorting.
     ddl = """

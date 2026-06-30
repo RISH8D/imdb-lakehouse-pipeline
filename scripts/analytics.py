@@ -1,3 +1,4 @@
+import os
 import time
 import clickhouse_connect
 from pyspark.sql import SparkSession
@@ -33,7 +34,8 @@ def benchmark_spark():
     return end_time - start_time
 
 def benchmark_clickhouse():
-    client = clickhouse_connect.get_client(host='localhost', port=8123, username='default', password='password')
+    host = os.getenv('CLICKHOUSE_HOST', 'localhost')
+    client = clickhouse_connect.get_client(host=host, port=8123, username='default', password='password')
     
     start_time = time.time()
     client.query(QUERY_CH)

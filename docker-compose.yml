@@ -1,29 +1,6 @@
 version: '3.8'
 
 services:
-  spark-master:
-    image: apache/spark:3.4.1
-    container_name: spark-master
-    command: bin/spark-class org.apache.spark.deploy.master.Master
-    ports:
-      - "8080:8080"
-      - "7077:7077"
-    volumes:
-      - ./data:/var/lib/clickhouse/user_files/data
-      - ./scripts:/scripts
-
-  spark-worker:
-    image: apache/spark:3.4.1
-    container_name: spark-worker
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    depends_on:
-      - spark-master
-    environment:
-      - SPARK_WORKER_MEMORY=2G
-      - SPARK_WORKER_CORES=2
-    volumes:
-      - ./data:/var/lib/clickhouse/user_files/data
-
   clickhouse:
     image: clickhouse/clickhouse-server:latest
     container_name: clickhouse-server
@@ -35,3 +12,14 @@ services:
       - "9000:9000"
     volumes:
       - ./data:/var/lib/clickhouse/user_files/data
+
+  pipeline-runner:
+    build: .
+    container_name: pipeline-runner
+    depends_on:
+      - clickhouse
+    environment:
+      - CLICKHOUSE_HOST=clickhouse
+    volumes:
+      - ./data:/app/data
+      - ./kaggle.json:/app/kaggle.json

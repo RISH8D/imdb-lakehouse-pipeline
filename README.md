@@ -17,18 +17,7 @@ I used ChatGPT to generate the boilerplate PySpark syntax and the Docker Compose
 ## Execution Guide
 
 1. Clone this repository and ensure `kaggle.json` is in the root directory.
-2. Spin up the infrastructure:
+2. Spin up the infrastructure and run the automated pipeline orchestrator in one command:
    ```bash
-   docker compose up -d
-   ```
-3. Set up the Python environment (Python 3.10 is required for PySpark 3.4.x compatibility):
-   ```bash
-   # On Mac with Homebrew: brew install python@3.10
-   python3.10 -m venv venv_py310
-   source venv_py310/bin/activate
-   pip install -r requirements.txt
-   ```
-4. Run the automated pipeline orchestrator:
-   ```bash
-   python main.py
+   docker compose up --build
    ```
