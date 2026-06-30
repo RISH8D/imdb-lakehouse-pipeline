@@ -31,7 +31,7 @@ I used ChatGPT to generate the boilerplate PySpark syntax and the Docker Compose
    *(Note: If you are on an older version of Docker Desktop, you may need to use the hyphenated syntax: `docker-compose up --build`)*
 
 ### Expected Output & Benchmarks
-When the pipeline finishes running, the container will execute an automated benchmarking script (`scripts/analytics.py`). This script pits the raw Spark engine against the ClickHouse OLAP engine using the exact same aggregation query. 
+When the pipeline finishes running, the container will execute an automated benchmarking script (`scripts/analytics.py`). This script compares the raw Spark engine against the ClickHouse OLAP engine using the exact same aggregation query. 
 
 You should expect to see output similar to this in your terminal, proving the speed difference of the `MergeTree` engine:
 ```text
