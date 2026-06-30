@@ -21,16 +21,14 @@ I used ChatGPT to generate the boilerplate PySpark syntax and the Docker Compose
    ```bash
    docker compose up -d
    ```
-3. Set up the Python environment:
+3. Set up the Python environment (Python 3.10 is required for PySpark 3.4.x compatibility):
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate
+   # On Mac with Homebrew: brew install python@3.10
+   python3.10 -m venv venv_py310
+   source venv_py310/bin/activate
    pip install -r requirements.txt
    ```
-4. Run the pipeline in order:
+4. Run the automated pipeline orchestrator:
    ```bash
-   python scripts/download_data.py
-   python scripts/etl_job.py
-   python scripts/load_to_olap.py
-   python scripts/analytics.py
+   python main.py
    ```
