@@ -24,7 +24,7 @@ I used ChatGPT to generate the boilerplate PySpark syntax and the Docker Compose
 
 ### Running the Pipeline
 1. Clone this repository and ensure `kaggle.json` is in the root directory.
-2. Spin up the infrastructure and run the automated pipeline orchestrator in one command:
+2. Spin up the infrastructure (ClickHouse, Spark Master, Spark Worker) and run the automated pipeline orchestrator in one command:
    ```bash
    docker compose up --build
    ```
