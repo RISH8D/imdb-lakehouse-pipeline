@@ -38,7 +38,7 @@ You should expect to see output similar to this in your terminal, proving the sp
 Running benchmarks...
 
 --- Results ---
-PySpark Query Time:    4.1203 seconds
-ClickHouse Query Time: 0.2310 seconds
-ClickHouse is 17.8x faster for this workload.
+PySpark Query Time:    9.7053 seconds
+ClickHouse Query Time: 0.1797 seconds
+ClickHouse is 54.0x faster for this workload.
 ```

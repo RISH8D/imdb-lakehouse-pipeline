@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   clickhouse:
     image: clickhouse/clickhouse-server:latest
@@ -14,7 +12,7 @@ services:
       - ./data:/var/lib/clickhouse/user_files/data
 
   spark-master:
-    image: spark:latest
+    image: spark:3.5.1
     container_name: spark-master
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master -h spark-master -p 7077 --webui-port 8080
     ports:
@@ -24,7 +22,7 @@ services:
       - ./data:/app/data
 
   spark-worker:
-    image: spark:latest
+    image: spark:3.5.1
     container_name: spark-worker
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077 -c 2 -m 2G
     depends_on:

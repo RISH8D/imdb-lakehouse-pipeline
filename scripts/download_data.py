@@ -21,6 +21,11 @@ def download_imdb_data():
     ]
     
     try:
+        # Remove existing zip if it exists to avoid 416 resume errors
+        zip_path = os.path.join(raw_dir, "imdb-dataset.zip")
+        if os.path.exists(zip_path):
+            os.remove(zip_path)
+
         subprocess.run(command, check=True)
         print("Download complete. Unzipping files...")
         
