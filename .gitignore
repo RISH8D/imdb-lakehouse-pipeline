@@ -11,5 +11,6 @@ kaggle.json
 
 # Python environment and cache
 venv/
+venv_py310/
 __pycache__/
 .DS_Store
