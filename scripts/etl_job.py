@@ -11,7 +11,7 @@ def clean_nulls(df):
 def main():
     spark = SparkSession.builder \
         .appName("IMDb_Lakehouse_ETL") \
-        .master("local[*]") \
+        .master("spark://spark-master:7077") \
         .getOrCreate()
     
     # 1. Extract
