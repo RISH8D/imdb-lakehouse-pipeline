@@ -19,6 +19,10 @@ I used ChatGPT to generate the boilerplate PySpark syntax and the Docker Compose
 
 ## Execution Guide
 
+### Prerequisites
+* **Docker Desktop:** This project is 100% containerized. You do not need Python, Java, or Spark installed on your machine, but you **must** have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+
+### Running the Pipeline
 1. Clone this repository and ensure `kaggle.json` is in the root directory.
 2. Spin up the infrastructure and run the automated pipeline orchestrator in one command:
    ```bash
